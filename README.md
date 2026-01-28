@@ -22,7 +22,7 @@ Laravel приложение с Vue.js 3, Inertia.js, TypeScript, Pinia, Postgre
 
 ### 1. Клонирование и настройка
 ```bash
-git clone <repository-url>
+git clone https://github.com/PetkaKahin/Laravel_docker.git
 cd Laravel_docker
 cp .env.example .env
 ```
