@@ -19,7 +19,7 @@
 
 <a id="english"></a>
 
-## 🇬🇧 English
+## 🇺🇸 English
 
 ### About
 
@@ -106,6 +106,8 @@ Open in browser:
 | `make php-ide-helper` | Generate IDE helpers |
 | `make reverb` | Start Reverb server |
 | `make reverb-debug` | Start Reverb with debug output |
+| `make queue-restart` | Restart queue worker |
+| `make queue-logs` | Follow queue worker logs |
 
 ### Docker Services
 
@@ -116,6 +118,7 @@ Open in browser:
 | `db` | PostgreSQL 18 | **5432** |
 | `redis` | Redis 7 | **6379** |
 | `reverb` | PHP 8.4-FPM | **8080** |
+| `queue` | PHP 8.4-FPM | — |
 | `npm` | Node LTS | **5173** (dev) |
 
 ### Environment Variables
@@ -245,6 +248,8 @@ make dev          # Запуск Vite dev-сервера с HMR
 | `make php-ide-helper` | Генерация IDE-хелперов |
 | `make reverb` | Запуск Reverb-сервера |
 | `make reverb-debug` | Запуск Reverb с отладкой |
+| `make queue-restart` | Перезапуск воркера очередей |
+| `make queue-logs` | Логи воркера очередей |
 
 ### Docker-сервисы
 
@@ -255,6 +260,7 @@ make dev          # Запуск Vite dev-сервера с HMR
 | `db` | PostgreSQL 18 | **5432** |
 | `redis` | Redis 7 | **6379** |
 | `reverb` | PHP 8.4-FPM | **8080** |
+| `queue` | PHP 8.4-FPM | — |
 | `npm` | Node LTS | **5173** (dev) |
 
 ### Переменные окружения
