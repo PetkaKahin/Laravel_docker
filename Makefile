@@ -6,7 +6,7 @@ install:
 	docker compose exec php php artisan migrate
 	docker compose run --rm npm install
 	docker compose exec -T php php docker/scripts/generate-reverb-keys.php
-	docker compose up -d --build reverb
+	docker compose up -d --build reverb queue
 	docker compose exec php php artisan ziggy:generate
 	docker compose run --rm npm run build
 
@@ -39,6 +39,12 @@ reverb:
 
 reverb-debug:
 	docker compose exec php php artisan reverb:start --debug
+
+queue-restart:
+	docker compose restart queue
+
+queue-logs:
+	docker compose logs -f queue
 
 ziggy-generate:
 	docker compose exec php php artisan ziggy:generate --types
