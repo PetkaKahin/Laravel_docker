@@ -39,3 +39,6 @@ reverb:
 
 reverb-debug:
 	docker compose exec php php artisan reverb:start --debug
+
+ziggy-generate:
+	docker compose exec php php artisan ziggy:generate --types
