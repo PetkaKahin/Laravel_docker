@@ -3,7 +3,8 @@
     "include": [
         "resources/js/**/*",
         "resources/**/*.d.ts",
-        "resources/js/**/*.vue"
+        "resources/js/shims-vue.d.ts",
+        "resources/js/**/*.vue",
     ],
     "exclude": [
         "src/**/__tests__/*",
@@ -13,7 +14,8 @@
         "composite": true,
         "baseUrl": ".",
         "paths": {
-            "@/*": ["./resources/js/*"]
+            "@/*": ["./resources/js/*"],
+            "@scss/*": ["resources/scss/*"],
         },
         "target": "ES2020",
         "module": "ESNext",

@@ -1,19 +1,23 @@
-import './bootstrap';
-import { createApp, h } from 'vue'
-import { createInertiaApp } from '@inertiajs/vue3'
-import { createPinia } from 'pinia'
+import './bootstrap'
+
+import {createApp, h} from 'vue'
+import {createInertiaApp} from '@inertiajs/vue3'
+import {createPinia} from 'pinia'
+import {ZiggyVue} from 'ziggy-js'
+import {Ziggy} from "./ziggy.js"
 
 createInertiaApp({
     resolve: name => {
-        const pages = import.meta.glob('./Pages/**/*.vue', { eager: true })
+        const pages = import.meta.glob('./Pages/**/*.vue', {eager: true})
         return pages[`./Pages/${name}.vue`]
     },
-    setup({ el, App, props, plugin }) {
+    setup({el, App, props, plugin}) {
         const pinia = createPinia()
 
-        createApp({ render: () => h(App, props) })
+        createApp({render: () => h(App, props)})
             .use(plugin)
             .use(pinia)
+            .use(ZiggyVue, Ziggy)
             .mount(el)
     },
     defaults: {
@@ -23,14 +27,6 @@ createInertiaApp({
         prefetch: {
             cacheFor: "1m",
             hoverDelay: 150,
-        },
-        visitOptions: (href, options) => {
-            return {
-                headers: {
-                    ...options.headers,
-                    "X-Custom-Header": "value",
-                },
-            };
         },
     },
 })
