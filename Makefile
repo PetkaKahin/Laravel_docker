@@ -11,7 +11,7 @@ install:
 	docker compose run --rm npm run build
 
 composer:
-	docker compose exec php composer
+	docker compose exec php composer $(filter-out $@,$(MAKECMDGOALS))
 
 format:
 	docker compose exec php composer format
@@ -23,7 +23,10 @@ php-ide-helper:
 	docker compose exec php php artisan ide-helper:generate
 
 php:
-	docker compose exec php php
+	docker compose exec php php $(filter-out $@,$(MAKECMDGOALS))
+
+%:
+	@:
 
 stan:
 	docker compose exec php ./vendor/bin/phpstan analyse --memory-limit=512M
